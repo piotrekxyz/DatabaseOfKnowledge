@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FilesOperations.cs" />
     <Compile Include="Classes\Serialization.cs" />
     <Compile Include="Classes\SerializationGeneric.cs" />
     <Compile Include="Classes\Tests\PersonJSON.cs" />
