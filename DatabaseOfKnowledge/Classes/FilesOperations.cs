@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace DatabaseOfKnowledge.Classes
 {
@@ -29,7 +30,7 @@ namespace DatabaseOfKnowledge.Classes
 			string s = "";
 			try
 			{
-				using (StreamReader sr = new StreamReader(fileName))
+				using (StreamReader sr = new StreamReader(fileName, Encoding.GetEncoding("iso-8859-2")))
 					s = sr.ReadToEnd();
 			}
 			catch (Exception ex)
@@ -75,7 +76,7 @@ namespace DatabaseOfKnowledge.Classes
 			string line, result = "";
 			try
 			{
-				StreamReader sr = new StreamReader(fileName);
+				StreamReader sr = new StreamReader(fileName, Encoding.GetEncoding("iso-8859-2"));
 				while ((line = sr.ReadLine()) != null)
 					result += line;
 				sr.Close();
@@ -93,7 +94,7 @@ namespace DatabaseOfKnowledge.Classes
 			try
 			{
 				using (FileStream fs = new FileStream(fileName, FileMode.Append, FileAccess.Write))
-				using (StreamWriter sw = new StreamWriter(fs))
+				using (StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding("iso-8859-2")))
 					sw.Write(data.ToString());
 			}
 			catch (Exception ex)
@@ -109,7 +110,7 @@ namespace DatabaseOfKnowledge.Classes
 			try
 			{
 				using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-				using (StreamWriter sw = new StreamWriter(fs))
+				using (StreamWriter sw = new StreamWriter(fs, Encoding.Default))
 					sw.Write(data.ToString());
 			}
 			catch (Exception ex)
@@ -125,7 +126,7 @@ namespace DatabaseOfKnowledge.Classes
 			try
 			{
 				using (FileStream fs = new FileStream(fileName, FileMode.CreateNew, FileAccess.Write))
-				using (StreamWriter sw = new StreamWriter(fs))
+				using (StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding("iso-8859-2")))
 					sw.Write(data.ToString());
 			}
 			catch (Exception ex)
@@ -141,7 +142,7 @@ namespace DatabaseOfKnowledge.Classes
 			try
 			{
 				using (FileStream fs = new FileStream(fileName, FileMode.Truncate, FileAccess.Write))
-				using (StreamWriter sw = new StreamWriter(fs))
+				using (StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding("iso-8859-2")))
 					sw.Write(data.ToString());
 			}
 			catch (Exception ex)
